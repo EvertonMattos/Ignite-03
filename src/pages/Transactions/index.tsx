@@ -24,18 +24,18 @@ export function Transactions() {
 
         <TransactionsTable>
           <tbody>
-            {transactions.map((transaction) => {
+            {transactions.map((item) => {
               return (
-                <tr key={transaction.id}>
-                  <td width="50%">{transaction.description}</td>
+                <tr key={item.id}>
+                  <td width="50%">{item.description}</td>
                   <td>
-                    <PriceHighlight variant={transaction.type}>
-                      {transaction.type ==='outcome' && '- '}
-                      {priceFormatter.format(transaction.price)}
+                    <PriceHighlight variant={item.type}>
+                      {item.type ==='outcome' && '- '}
+                      {priceFormatter.format(item.price)}
                     </PriceHighlight>
                   </td>
-                  <td>{transaction.category}</td>
-                  <td>{transaction.createdAt}</td>
+                  <td>{item.category}</td>
+                  <td>{item.createdAt}</td>
                 </tr>
               );
             })}
