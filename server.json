@@ -1,26 +1,21 @@
 {
-  "transaction":[{
-    "id": 1,
-    "description":"Desenvolvimento de site",
-    "type":"income",
-    "category":"venda",
-    "price":1400,
-    "createdAt":"2022-08-22T15:31:07.243Z"
-  },
-  {
-    "id": 2,
-    "description":"Pizzaria do José",
-    "type":"outcome",
-    "category":"compra",
-    "price":180,
-    "createdAt":"2022-08-22T12:31:07.243Z"
-  },
-  {
-    "id": 3,
-    "description":"Pagamento de emprestimo",
-    "type":"outcome",
-    "category":"compra",
-    "price":1800,
-    "createdAt":"2022-12-22T12:31:07.243Z"
-  }]
+  "transaction": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "category": "venda",
+      "price": 1400,
+      "createdAt": "2022-08-22T15:31:07.243Z"
+    },
+    {
+      "id": 2,
+      "description": "Pizzaria do José",
+      "type": "outcome",
+      "category": "compra",
+      "price": 180,
+      "createdAt": "2022-08-22T12:31:07.243Z"
+    }
+    
+  ]
 }

@@ -10,7 +10,9 @@ import {
 import { Controller, useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
+import { api } from "../../lib/axios";
+import { useContext } from "react";
+import { TransactionContext } from '../../contexts/TransactionsContext';
 const newTransactionFormSchema = z.object({
   description: z.string(),
   price: z.number(),
@@ -20,15 +22,23 @@ const newTransactionFormSchema = z.object({
 type NewTransactionFormInputs = z.infer<typeof newTransactionFormSchema>;
 
 export function NewTransactionModal() {
-  const { register, handleSubmit,control, } = useForm<NewTransactionFormInputs>({
+  const { createTransaction } = useContext(TransactionContext);
+  const { register, handleSubmit,control,reset } = useForm<NewTransactionFormInputs>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues:{
       type:'income'
     }
   });
   async function handleSubmitNewTransactions(data:NewTransactionFormInputs) {
-    await new Promise(resolver=>setTimeout(resolver,2000))
-    console.log(data)
+    const { description,type,price,category} = data
+ 
+    await createTransaction({
+      description,
+      price,
+      category,
+      type,
+    });
+    reset()
   }
   return (
     <Dialog.Portal>
@@ -83,3 +93,7 @@ export function NewTransactionModal() {
     </Dialog.Portal>
   );
 }
+function TransactionsContext(TransactionsContext: any): { createTransaction: any; } {
+  throw new Error("Function not implemented.");
+}
+
